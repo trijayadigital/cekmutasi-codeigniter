@@ -4,6 +4,8 @@ defined("BASEPATH") or exit("No direct script access allowed");
 
 require_once(__DIR__.'/Support/Constant.php');
 
+use Cekmutasi\Support\Constant;
+
 class Container
 {
 	protected $apiKey;
@@ -24,7 +26,7 @@ class Container
     *
     *   @param String $endpoint
     *
-    *   @param Int \Cekmutasi\Support\Constant $method
+    *   @param Int Cekmutasi\Support\Constant $method
     *
     *   @param Array Request Parameters $params
     *
@@ -32,13 +34,13 @@ class Container
     *
     **/
 
-	protected function curl($endpoint, $method = \Cekmutasi\Support\Constant::HTTP_GET, $params = [])
+	protected function curl($endpoint, $method = Constant::HTTP_GET, $params = [])
     {
-    	$url = \Cekmutasi\Support\Constant::API_BASEURL . '/'.ltrim($endpoint, '/');
+    	$url = Constant::API_BASEURL . '/'.ltrim($endpoint, '/');
 
     	$ch = curl_init();
 
-    	if( $method == \Cekmutasi\Support\Constant::HTTP_GET )
+    	if( $method == Constant::HTTP_GET )
     	{
     		$url .= '?'.http_build_query($params);
     	}
@@ -54,8 +56,8 @@ class Container
         curl_setopt($ch, CURLOPT_HEADER, false);
         curl_setopt($ch, CURLOPT_HTTPHEADER, [
             	'Api-Key: ' . $this->apiKey,
-            	'Accept: ' . \Cekmutasi\Support\Constant::FORMAT_JSON,
-                'User-Agent: Cekmutasi CodeIgniter/' . \Cekmutasi\Support\Constant::VERSION
+            	'Accept: ' . Constant::FORMAT_JSON,
+                'User-Agent: Cekmutasi CodeIgniter/' . Constant::VERSION
             ]);
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
         curl_setopt($ch, CURLOPT_TIMEOUT, 180);

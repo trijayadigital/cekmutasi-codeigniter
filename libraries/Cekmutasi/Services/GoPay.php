@@ -7,7 +7,10 @@ namespace Cekmutasi\Services;
 require_once(dirname(__DIR__).'/Container.php');
 require_once(dirname(__DIR__).'/Support/Constant.php');
 
-class GoPay extends \Container
+use Container;
+use Cekmutasi\Support\Constant;
+
+class GoPay extends Container
 {
 	private $config = [];
 
@@ -29,7 +32,7 @@ class GoPay extends \Container
 
 	public function mutation($filters = [])
 	{
-		return $this->curl('/gopay/search', \Cekmutasi\Support\Constant::HTTP_POST, [
+		return $this->curl('/gopay/search', Constant::HTTP_POST, [
 			'search'	=> $filters
 		]);
 	}
@@ -43,7 +46,7 @@ class GoPay extends \Container
 
 	public function list()
 	{
-		return $this->curl('/gopay/list', \Cekmutasi\Support\Constant::HTTP_POST);
+		return $this->curl('/gopay/list', Constant::HTTP_POST);
 	}
 
 	/**
@@ -55,7 +58,7 @@ class GoPay extends \Container
 
 	public function balance()
 	{
-		return $this->curl('/gopay/balance', \Cekmutasi\Support\Constant::HTTP_POST);
+		return $this->curl('/gopay/balance', Constant::HTTP_POST);
 	}
 
 	/**
@@ -69,7 +72,7 @@ class GoPay extends \Container
 
 	public function detail(int $id)
 	{
-		return $this->curl('/gopay/detail', \Cekmutasi\Support\Constant::HTTP_POST, [
+		return $this->curl('/gopay/detail', Constant::HTTP_POST, [
 			'id'	=> intval($id)
 		]);
 	}

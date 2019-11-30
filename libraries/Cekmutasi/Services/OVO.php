@@ -7,7 +7,10 @@ namespace Cekmutasi\Services;
 require_once(dirname(__DIR__).'/Container.php');
 require_once(dirname(__DIR__).'/Support/Constant.php');
 
-class OVO extends \Container
+use Container;
+use Cekmutasi\Support\Constant;
+
+class OVO extends Container
 {
 	private $config = [];
 
@@ -29,7 +32,7 @@ class OVO extends \Container
 
 	public function mutation($filters = [])
 	{
-		return $this->curl('/ovo/search', \Cekmutasi\Support\Constant::HTTP_POST, [
+		return $this->curl('/ovo/search', Constant::HTTP_POST, [
 			'search'	=> $filters
 		]);
 	}
@@ -43,7 +46,7 @@ class OVO extends \Container
 
 	public function list()
 	{
-		return $this->curl('/ovo/list', \Cekmutasi\Support\Constant::HTTP_POST);
+		return $this->curl('/ovo/list', Constant::HTTP_POST);
 	}
 
 	/**
@@ -55,7 +58,7 @@ class OVO extends \Container
 
 	public function balance()
 	{
-		return $this->curl('/ovo/balance', \Cekmutasi\Support\Constant::HTTP_POST);
+		return $this->curl('/ovo/balance', Constant::HTTP_POST);
 	}
 
 	/**
@@ -69,7 +72,7 @@ class OVO extends \Container
 
 	public function detail(int $id)
 	{
-		return $this->curl('/ovo/detail', \Cekmutasi\Support\Constant::HTTP_POST, [
+		return $this->curl('/ovo/detail', Constant::HTTP_POST, [
 			'id'	=> intval($id)
 		]);
 	}
@@ -85,7 +88,7 @@ class OVO extends \Container
 
 	public function transferBankList($sourceNumber)
 	{
-		return $this->curl('/ovo/transfer/bank-list', \Cekmutasi\Support\Constant::HTTP_POST, [
+		return $this->curl('/ovo/transfer/bank-list', Constant::HTTP_POST, [
 			'source_number'	=> $sourceNumber
 		]);
 	}
@@ -105,7 +108,7 @@ class OVO extends \Container
 
 	public function transferBankInquiry($sourceNumber, $bankCode, $destinationNumber)
 	{
-		return $this->curl('/ovo/transfer/inquiry', \Cekmutasi\Support\Constant::HTTP_POST, [
+		return $this->curl('/ovo/transfer/inquiry', Constant::HTTP_POST, [
 			'source_number'	=> $sourceNumber,
 			'bank_code'	=> $bankCode,
 			'destination_number'	=> $destinationNumber
@@ -129,7 +132,7 @@ class OVO extends \Container
 
 	public function transferBank($uuid, $token, $amount, $note = '')
 	{
-		return $this->curl('/ovo/transfer/send', \Cekmutasi\Support\Constant::HTTP_POST, [
+		return $this->curl('/ovo/transfer/send', Constant::HTTP_POST, [
 			'uuid'	=> $uuid,
 			'token'	=> $token,
 			'amount'	=> $amount,
@@ -148,7 +151,7 @@ class OVO extends \Container
 
 	public function transferBankDetail($uuid)
 	{
-		return $this->curl('/ovo/transfer/detail', \Cekmutasi\Support\Constant::HTTP_GET, [
+		return $this->curl('/ovo/transfer/detail', Constant::HTTP_GET, [
 			'uuid'	=> $uuid
 		]);
 	}
@@ -166,7 +169,7 @@ class OVO extends \Container
 
 	public function transferOVOInquiry($sourceNumber, $destinationNumber)
 	{
-		return $this->curl('/ovo/transfer/send', \Cekmutasi\Support\Constant::HTTP_POST, [
+		return $this->curl('/ovo/transfer/send', Constant::HTTP_POST, [
 			'source_number'	=> $sourceNumber,
 			'phone'	=> $destinationNumber
 		]);
@@ -187,7 +190,7 @@ class OVO extends \Container
 
 	public function transferOVO($sourceNumber, $destinationNumber, $amount)
 	{
-		return $this->curl('/ovo/transfer/send', \Cekmutasi\Support\Constant::HTTP_POST, [
+		return $this->curl('/ovo/transfer/send', Constant::HTTP_POST, [
 			'source_number'	=> $sourceNumber,
 			'phone'	=> $destinationNumber,
 			'amount'	=> $amount

@@ -9,6 +9,12 @@ require_once(__DIR__.'/Services/OVO.php');
 require_once(__DIR__.'/Services/GoPay.php');
 require_once(__DIR__.'/Support/Constant.php');
 
+use Cekmutasi\Support\Constant;
+use Cekmutasi\Services\Bank;
+use Cekmutasi\Services\PayPal;
+use Cekmutasi\Services\GoPay;
+use Cekmutasi\Services\OVO;
+
 class Cekmutasi extends Container
 {
 	public function __construct()
@@ -33,7 +39,7 @@ class Cekmutasi extends Container
 
     public function bank($configs = [])
     {
-        return (new \Cekmutasi\Services\Bank($configs));
+        return (new Bank($configs));
     }
 
     /**
@@ -47,7 +53,7 @@ class Cekmutasi extends Container
 
 	public function paypal($configs = [])
     {
-        return (new \Cekmutasi\Services\PayPal($configs));
+        return (new PayPal($configs));
     }
 
     /**
@@ -61,7 +67,7 @@ class Cekmutasi extends Container
 
 	public function gopay($configs = [])
     {
-    	return (new \Cekmutasi\Services\GoPay($configs));
+    	return (new GoPay($configs));
     }
 
     /**
@@ -75,7 +81,7 @@ class Cekmutasi extends Container
 
 	public function ovo($configs = [])
     {
-    	return (new \Cekmutasi\Services\OVO($configs));
+    	return (new OVO($configs));
     }
 
     /**
@@ -87,7 +93,7 @@ class Cekmutasi extends Container
 
 	public function checkIP()
     {
-    	return $this->curl('/myip', \Cekmutasi\Support\Constant::HTTP_POST);
+    	return $this->curl('/myip', Constant::HTTP_POST);
     }
 
     /**
@@ -99,7 +105,7 @@ class Cekmutasi extends Container
 
 	public function balance()
     {
-    	return $this->curl('/balance', \Cekmutasi\Support\Constant::HTTP_POST);
+    	return $this->curl('/balance', Constant::HTTP_POST);
     }
 
     /**

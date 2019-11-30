@@ -7,7 +7,10 @@ namespace Cekmutasi\Services;
 require_once(dirname(__DIR__).'/Container.php');
 require_once(dirname(__DIR__).'/Support/Constant.php');
 
-class PayPal extends \Container
+use Container;
+use Cekmutasi\Support\Constant;
+
+class PayPal extends Container
 {
 	private $config = [];
 
@@ -29,7 +32,7 @@ class PayPal extends \Container
 
 	public function mutation($filters = [])
 	{
-		return $this->curl('/paypal/search', \Cekmutasi\Support\Constant::HTTP_POST, [
+		return $this->curl('/paypal/search', Constant::HTTP_POST, [
 			'search'	=> $filters
 		]);
 	}
@@ -43,7 +46,7 @@ class PayPal extends \Container
 
 	public function list()
 	{
-		return $this->curl('/paypal/list', \Cekmutasi\Support\Constant::HTTP_POST);
+		return $this->curl('/paypal/list', Constant::HTTP_POST);
 	}
 
 	/**
@@ -55,7 +58,7 @@ class PayPal extends \Container
 
 	public function balance()
 	{
-		return $this->curl('/paypal/balance', \Cekmutasi\Support\Constant::HTTP_POST);
+		return $this->curl('/paypal/balance', Constant::HTTP_POST);
 	}
 
 	/**
@@ -69,7 +72,7 @@ class PayPal extends \Container
 
 	public function detail(int $id)
 	{
-		return $this->curl('/paypal/detail', \Cekmutasi\Support\Constant::HTTP_POST, [
+		return $this->curl('/paypal/detail', Constant::HTTP_POST, [
 			'id'	=> intval($id)
 		]);
 	}
@@ -87,7 +90,7 @@ class PayPal extends \Container
 
 	public function trxDetail($username, $transactionid)
 	{
-		return $this->curl('/paypal/transaction/detail', \Cekmutasi\Support\Constant::HTTP_POST, [
+		return $this->curl('/paypal/transaction/detail', Constant::HTTP_POST, [
 			'username'	=> $username,
 			'transactionid' => $transactionid
 		]);

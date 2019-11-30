@@ -7,7 +7,10 @@ namespace Cekmutasi\Services;
 require_once(dirname(__DIR__).'/Container.php');
 require_once(dirname(__DIR__).'/Support/Constant.php');
 
-class Bank extends \Container
+use Container;
+use Cekmutasi\Support\Constant;
+
+class Bank extends Container
 {
 	private $config = [];
 
@@ -29,7 +32,7 @@ class Bank extends \Container
 
 	public function mutation($filters = [])
 	{
-		return $this->curl('/bank/search', \Cekmutasi\Support\Constant::HTTP_POST, [
+		return $this->curl('/bank/search', Constant::HTTP_POST, [
 			'search'	=> $filters
 		]);
 	}
@@ -43,7 +46,7 @@ class Bank extends \Container
 
 	public function list()
 	{
-		return $this->curl('/bank/list', \Cekmutasi\Support\Constant::HTTP_POST);
+		return $this->curl('/bank/list', Constant::HTTP_POST);
 	}
 
 	/**
@@ -55,7 +58,7 @@ class Bank extends \Container
 
 	public function balance()
 	{
-		return $this->curl('/bank/balance', \Cekmutasi\Support\Constant::HTTP_POST);
+		return $this->curl('/bank/balance', Constant::HTTP_POST);
 	}
 
 	/**
@@ -69,7 +72,7 @@ class Bank extends \Container
 
 	public function detail(int $id)
 	{
-		return $this->curl('/bank/detail', \Cekmutasi\Support\Constant::HTTP_POST, [
+		return $this->curl('/bank/detail', Constant::HTTP_POST, [
 			'id'	=> intval($id)
 		]);
 	}
