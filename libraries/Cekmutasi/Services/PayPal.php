@@ -23,7 +23,7 @@ class PayPal extends \Container
 	*
 	*	@param Array Search Filter $filters
 	*
-	*	@return Object PTTridi\Cekmutasi\Container::curl()
+	*	@return Object Container::curl()
 	*
 	**/
 
@@ -37,7 +37,7 @@ class PayPal extends \Container
 	/**
 	*	Get all registered paypal accounts
 	*
-	*	@return Object PTTridi\Cekmutasi\Container::curl()
+	*	@return Object Container::curl()
 	*
 	**/
 
@@ -49,7 +49,7 @@ class PayPal extends \Container
 	/**
 	*	Get total balance of registered paypal accounts
 	*
-	*	@return Object PTTridi\Cekmutasi\Container::curl()
+	*	@return Object Container::curl()
 	*
 	**/
 
@@ -63,7 +63,7 @@ class PayPal extends \Container
 	*
 	*	@param Int PayPal ID $id
 	*
-	*	@return Object PTTridi\Cekmutasi\Container::curl()
+	*	@return Object Container::curl()
 	*
 	**/
 
@@ -81,7 +81,7 @@ class PayPal extends \Container
 	*
 	*	@param String $transactionid
 	*
-	*	@return Object PTTridi\Cekmutasi\Container::curl()
+	*	@return Object Container::curl()
 	*
 	**/
 

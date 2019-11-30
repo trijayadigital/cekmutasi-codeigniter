@@ -18,6 +18,15 @@ class GoPay extends \Container
 		$this->config = $configs;
 	}
 
+	/**
+	*	Get GoPay mutation (max 1000)
+	*
+	*	@param Array Search Filter $filters
+	*
+	*	@return Object Container::curl()
+	*
+	**/
+
 	public function mutation($filters = [])
 	{
 		return $this->curl('/gopay/search', \Cekmutasi\Support\Constant::HTTP_POST, [
@@ -25,15 +34,38 @@ class GoPay extends \Container
 		]);
 	}
 
+	/**
+	*	Get all registered gopay accounts
+	*
+	*	@return Object Container::curl()
+	*
+	**/
+
 	public function list()
 	{
 		return $this->curl('/gopay/list', \Cekmutasi\Support\Constant::HTTP_POST);
 	}
 
+	/**
+	*	Get total balance of registered gopay accounts
+	*
+	*	@return Object Container::curl()
+	*
+	**/
+
 	public function balance()
 	{
 		return $this->curl('/gopay/balance', \Cekmutasi\Support\Constant::HTTP_POST);
 	}
+
+	/**
+	*	Get gopay account detail
+	*
+	*	@param Int GoPay ID $id
+	*
+	*	@return Object Container::curl()
+	*
+	**/
 
 	public function detail(int $id)
 	{

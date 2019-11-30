@@ -19,6 +19,19 @@ class Container
         $this->apiSignature = $this->CI->config->item('api_signature', 'cekmutasi');
     }
 
+    /**
+    *   Make HTTP request
+    *
+    *   @param String $endpoint
+    *
+    *   @param Int \Cekmutasi\Support\Constant $method
+    *
+    *   @param Array Request Parameters $params
+    *
+    *   @return Object
+    *
+    **/
+
 	protected function curl($endpoint, $method = \Cekmutasi\Support\Constant::HTTP_GET, $params = [])
     {
     	$url = \Cekmutasi\Support\Constant::API_BASEURL . '/'.ltrim($endpoint, '/');

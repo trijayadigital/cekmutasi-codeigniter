@@ -18,6 +18,15 @@ class OVO extends \Container
 		$this->config = $configs;
 	}
 
+	/**
+	*	Get OVO mutation (max 1000)
+	*
+	*	@param Array Search Filter $filters
+	*
+	*	@return Object Container::curl()
+	*
+	**/
+
 	public function mutation($filters = [])
 	{
 		return $this->curl('/ovo/search', \Cekmutasi\Support\Constant::HTTP_POST, [
@@ -25,15 +34,38 @@ class OVO extends \Container
 		]);
 	}
 
+	/**
+	*	Get all registered ovo accounts
+	*
+	*	@return Object Container::curl()
+	*
+	**/
+
 	public function list()
 	{
 		return $this->curl('/ovo/list', \Cekmutasi\Support\Constant::HTTP_POST);
 	}
 
+	/**
+	*	Get total balance of registered ovo accounts
+	*
+	*	@return Object Container::curl()
+	*
+	**/
+
 	public function balance()
 	{
 		return $this->curl('/ovo/balance', \Cekmutasi\Support\Constant::HTTP_POST);
 	}
+
+	/**
+	*	Get ovo account detail
+	*
+	*	@param Int OVO ID $id
+	*
+	*	@return Object Container::curl()
+	*
+	**/
 
 	public function detail(int $id)
 	{
@@ -42,12 +74,34 @@ class OVO extends \Container
 		]);
 	}
 
+	/**
+	*	Get list bank for OVO Transfer
+	*
+	*	@param String $sourceNumber
+	*
+	*	@return Object Container::curl()
+	*
+	**/
+
 	public function transferBankList($sourceNumber)
 	{
 		return $this->curl('/ovo/transfer/bank-list', \Cekmutasi\Support\Constant::HTTP_POST, [
 			'source_number'	=> $sourceNumber
 		]);
 	}
+
+	/**
+	*	Transfer inquiry
+	*
+	*	@param String $sourceNumber
+	*
+	*	@param String $bankCode
+	*
+	*	@param String $destinationNumber
+	*
+	*	@return Object Container::curl()
+	*
+	**/
 
 	public function transferBankInquiry($sourceNumber, $bankCode, $destinationNumber)
 	{
@@ -57,6 +111,21 @@ class OVO extends \Container
 			'destination_number'	=> $destinationNumber
 		]);
 	}
+
+	/**
+	*	Proccess transfer
+	*
+	*	@param String $uuid
+	*
+	*	@param String $token
+	*
+	*	@param String $amount
+	*
+	*	@param String $note
+	*
+	*	@return Object Container::curl()
+	*
+	**/
 
 	public function transferBank($uuid, $token, $amount, $note = '')
 	{
@@ -68,12 +137,32 @@ class OVO extends \Container
 		]);
 	}
 
+	/**
+	*	Get transfer detail
+	*
+	*	@param String $uuid
+	*
+	*	@return Object Container::curl()
+	*
+	**/
+
 	public function transferBankDetail($uuid)
 	{
 		return $this->curl('/ovo/transfer/detail', \Cekmutasi\Support\Constant::HTTP_GET, [
 			'uuid'	=> $uuid
 		]);
 	}
+
+	/**
+	*	Transfer Inquiry
+	*
+	*	@param String $sourceNumber
+	*
+	*	@param String $destinationNumber
+	*
+	*	@return Object Container::curl()
+	*
+	**/
 
 	public function transferOVOInquiry($sourceNumber, $destinationNumber)
 	{
@@ -82,6 +171,19 @@ class OVO extends \Container
 			'phone'	=> $destinationNumber
 		]);
 	}
+
+	/**
+	*	Process transfer
+	*
+	*	@param String $sourceNumber
+	*
+	*	@param String $destinationNumber
+	*
+	*	@param Int $amount
+	*
+	*	@return Object Container::curl()
+	*
+	**/
 
 	public function transferOVO($sourceNumber, $destinationNumber, $amount)
 	{

@@ -22,35 +22,92 @@ class Cekmutasi extends Container
 		$this->CI =& get_instance();
 	}
 
+    /**
+    *   Load bank service
+    *
+    *   @param Array $configs
+    *
+    *   @return Object Cekmutasi\Services\Bank
+    *
+    **/
+
     public function bank($configs = [])
     {
         return (new \Cekmutasi\Services\Bank($configs));
     }
+
+    /**
+    *   Load PayPal service
+    *
+    *   @param Array $configs
+    *
+    *   @return Object Cekmutasi\Services\PayPal
+    *
+    **/
 
 	public function paypal($configs = [])
     {
         return (new \Cekmutasi\Services\PayPal($configs));
     }
 
+    /**
+    *   Load GoPay service
+    *
+    *   @param Array $configs
+    *
+    *   @return Object Cekmutasi\Services\GoPay
+    *
+    **/
+
 	public function gopay($configs = [])
     {
     	return (new \Cekmutasi\Services\GoPay($configs));
     }
+
+    /**
+    *   Load OVO service
+    *
+    *   @param Array $configs
+    *
+    *   @return Object Cekmutasi\Services\OVO
+    *
+    **/
 
 	public function ovo($configs = [])
     {
     	return (new \Cekmutasi\Services\OVO($configs));
     }
 
+    /**
+    *   Check your IP
+    *
+    *   @return Object Container::curl()
+    *
+    **/
+
 	public function checkIP()
     {
     	return $this->curl('/myip', \Cekmutasi\Support\Constant::HTTP_POST);
     }
 
+    /**
+    *   Check your cekmutasi balance
+    *
+    *   @return Object Container::curl()
+    *
+    **/
+
 	public function balance()
     {
     	return $this->curl('/balance', \Cekmutasi\Support\Constant::HTTP_POST);
     }
+
+    /**
+    *   Handle incoming IPN/Callback data
+    *
+    *   @return Object
+    *
+    **/
 
 	public function catchIPN()
     {
