@@ -4,9 +4,9 @@ class TestCekmutasi extends CI_Controller
 {
 	public function mutasiBank()
 	{
-		$this->load->library('cekmutasi');
+		$this->load->library('cekmutasi/cekmutasi');
 
-		$mutasi = $this->cekmutasi->bank()->search([
+		$mutasi = $this->cekmutasi->bank()->mutation([
 			'date'		=> [
 				'from'	=> date('Y-m-d') . ' 00:00:00',
 				'to'	=> date('Y-m-d') . ' 23:59:59'
@@ -18,9 +18,9 @@ class TestCekmutasi extends CI_Controller
 
 	public function mutasiPayPal()
 	{
-		$this->load->library('cekmutasi');
+		$this->load->library('cekmutasi/cekmutasi');
 
-		$mutasi = $this->cekmutasi->paypal()->search([
+		$mutasi = $this->cekmutasi->paypal()->mutation([
 			'date'		=> [
 				'from'	=> date('Y-m-d') . ' 00:00:00',
 				'to'	=> date('Y-m-d') . ' 23:59:59'
@@ -32,9 +32,9 @@ class TestCekmutasi extends CI_Controller
 
 	public function mutasiOVO()
 	{
-		$this->load->library('cekmutasi');
+		$this->load->library('cekmutasi/cekmutasi');
 
-		$mutasi = $this->cekmutasi->ovo()->search([
+		$mutasi = $this->cekmutasi->ovo()->mutation([
 			'date'		=> [
 				'from'	=> date('Y-m-d') . ' 00:00:00',
 				'to'	=> date('Y-m-d') . ' 23:59:59'
@@ -46,9 +46,9 @@ class TestCekmutasi extends CI_Controller
 
 	public function mutasiGoPay()
 	{
-		$this->load->library('cekmutasi');
+		$this->load->library('cekmutasi/cekmutasi');
 
-		$mutasi = $this->cekmutasi->gopay()->search([
+		$mutasi = $this->cekmutasi->gopay()->mutation([
 			'date'		=> [
 				'from'	=> date('Y-m-d') . ' 00:00:00',
 				'to'	=> date('Y-m-d') . ' 23:59:59'
@@ -60,7 +60,7 @@ class TestCekmutasi extends CI_Controller
 
 	public function balance()
 	{
-		$this->load->library('cekmutasi');
+		$this->load->library('cekmutasi/cekmutasi');
 
 		$balance = $this->cekmutasi->balance();
 
@@ -69,7 +69,7 @@ class TestCekmutasi extends CI_Controller
 
 	public function handleCallback()
 	{
-		$this->load->library('cekmutasi');
+		$this->load->library('cekmutasi/cekmutasi');
 
 		$ipn = $this->cekmutasi->catchIPN();
 
