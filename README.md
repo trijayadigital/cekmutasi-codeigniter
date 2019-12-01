@@ -10,7 +10,7 @@ Development &amp; Integration Toolkit for CodeIgniter Framework (2.x+). For othe
 
 ## Installation
 
-- Copy folder **libraries/Cekmutasi** to your **application/libraries**
+- Copy folder **Cekmutasi** to your **application/libraries**
 - Copy **cekmutasi.php** to your **application/config**
 - Add your API Key & Signature in **application/config/cekmutasi.php**
 
