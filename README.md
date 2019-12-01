@@ -2,6 +2,12 @@
 
 Development &amp; Integration Toolkit for CodeIgniter Framework (2.x+). For other web framework/language/plugin, please go to https://github.com/trijayadigital/cekmutasi
 
+## Requirements
+
+- PHP 5.4+
+- CodeIgniter Framework v2.0+
+- cURL extension enabled
+
 ## Installation
 
 - Copy folder **libraries/Cekmutasi** to your **application/libraries**
