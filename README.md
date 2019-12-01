@@ -16,7 +16,7 @@ Development &amp; Integration Toolkit for CodeIgniter Framework (2.x+). For othe
 
 ## How To Use?
 
-You can use cekmutasi library by loading Cekmutasi through CodeIgniter Library Loader as shown below:
+Here is the example:
 
 <pre><code>&lt;?php
 
