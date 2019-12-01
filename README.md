@@ -18,11 +18,23 @@ Development &amp; Integration Toolkit for CodeIgniter Framework (2.x+). For othe
 
 You can use cekmutasi library by loading Cekmutasi through CodeIgniter Library Loader as shown below:
 
-<pre><code>$this->load->library("cekmutasi/cekmutasi");</code></pre>
+<pre><code>&lt;?php
 
-it will load Cekmutasi library in CodeIgniter class instance so you can use like this:
+defined('BASEPATH') OR exit('No direct script access allowed');
 
-<pre><code>$balance = $this->cekmutasi->balance();</code></pre>
+class Cekmutasi extends CI_Controller
+{
+	public function balance()
+	{
+		$this->load->library('cekmutasi/cekmutasi');
+
+		$balance = $this->cekmutasi->balance();
+
+		print_r($balance);
+	}
+}
+
+?&gt;</code></pre>
 
 Object data will return as data type of result
 
