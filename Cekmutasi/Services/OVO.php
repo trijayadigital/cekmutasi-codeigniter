@@ -169,7 +169,7 @@ class OVO extends Container
 
 	public function transferOVOInquiry($sourceNumber, $destinationNumber)
 	{
-		return $this->curl('/ovo/transfer/send', Constant::HTTP_POST, [
+		return $this->curl('/ovo/transfer-ovo/inquiry', Constant::HTTP_POST, [
 			'source_number'	=> $sourceNumber,
 			'phone'	=> $destinationNumber
 		]);
@@ -190,7 +190,7 @@ class OVO extends Container
 
 	public function transferOVO($sourceNumber, $destinationNumber, $amount)
 	{
-		return $this->curl('/ovo/transfer/send', Constant::HTTP_POST, [
+		return $this->curl('/ovo/transfer-ovo/send', Constant::HTTP_POST, [
 			'source_number'	=> $sourceNumber,
 			'phone'	=> $destinationNumber,
 			'amount'	=> $amount
